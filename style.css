@@ -1,7 +1,113 @@
+
+:root{
+ --black: #252422;
+ --grey: rgb(240, 240, 240);
+ --white: #fff;
+
+ --main: #007c89;
+ --secondary: #fbeeca;
+ 
+}
 *{
- /* border: 1px solid green; */
+ /* border: 1px solid red; */
  font-family: poppins;
  margin: 0;
  padding: 0;
  box-sizing: border-box;
+}
+
+body{
+ background-color: var(--grey);
+}
+#content{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-around;
+ margin: auto;
+ width: 80vw;
+ /* height: 100vh; */
+ padding-top: 2rem;
+}
+
+#projects{
+ padding: 2rem;
+ display: grid;
+ grid-template: 1fr / repeat(auto-fit, minmax(350px, 1fr));
+ gap: 2rem;
+ width: 100%;
+}
+
+.project{
+ background-color: teal;
+ color: var(--white);
+ display: grid;
+ grid-template: 1fr 2fr / 1fr;
+ border-radius: 10px;
+ /* align-items: space-between; */
+ /* justify-content: center; */
+ /* align-items: center; */
+ /* place-items: c; */
+ /* padding: 2rem ; */
+}
+.project *{
+ width: 100%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ 
+ width: 100%;
+ height: 100%;
+ /* justify-self: center;
+ align-self: center; */
+}
+.project h3{
+ align-items: center;
+ font-size: 1.5rem;
+ font-weight: 500;
+}
+.tasks{
+ align-items: flex-start;
+ gap: 0.5rem;
+ padding: 0 1rem 1rem;
+}
+.tasks p{
+ /* padding: 0.5rem; */
+ /* text-align: left; */
+ /* justify-self: left; */
+}
+.task{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ /* height: 50px; */
+ background-color: var(--secondary);
+ color: var(--black);
+ border-radius: 10px;
+ padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+ gap: 1rem;
+}
+.task img{
+ width: 20px;
+ height: 20px;
+}
+.task img:hover{
+ cursor: pointer;
+}
+.task p{
+ font-size: 18px;
+ line-height: 25px;
+}
+#plus{
+ /* border: 1px solid green; */
+ /* width: 30%; */
+ color: #ccc;
+ font-family: raleway;
+ font-size: 150px;
+ justify-self: center;
+ align-self: center;
+}
+#plus:hover{
+ cursor: pointer;
 }
