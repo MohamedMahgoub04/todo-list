@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MohamedMahgoub04/todo-list#readme",
   "devDependencies": {
+    "date-fns": "^2.28.0",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
   }
