@@ -5,6 +5,7 @@
  --white: #fff;
 
  --main: #007c89;
+ --main-dark: #006671;
  --secondary: #fbeeca;
  
 }
@@ -14,6 +15,9 @@
  margin: 0;
  padding: 0;
  box-sizing: border-box;
+}
+*:focus{
+ outline: none;
 }
 
 body{
@@ -28,6 +32,39 @@ body{
  width: 80vw;
  /* height: 100vh; */
  padding-top: 2rem;
+}
+
+#add-task{
+ width: 50%;
+}
+#add-task input{
+ border: 1px solid var(--main);
+ padding: 0.25rem 0.5rem;
+ font-size: 1rem;
+ width: 80%;
+}
+#add-task button, #modal button{
+ transition: 0.1s;
+ /* border-radius: 5px; */
+ border: 1px solid var(--main);
+ background-color: var(--main);
+ color: var(--white);
+ font-size: 1rem;
+ padding: 0.25rem 0.5rem;
+ 
+}
+#add-task button:hover, #modal button:hover{
+ transition: 0.3s;
+ cursor: pointer;
+ border: 1px solid var(--main-dark);
+ background-color: var(--main-dark);
+}
+#menu-div{
+ margin: 0.5rem 0;
+ display: flex;
+ flex-direction: row;
+ gap: 1rem;
+ /* text-decoration: ; */
 }
 
 #projects{
@@ -72,22 +109,55 @@ body{
  gap: 0.5rem;
  padding: 0 1rem 1rem;
 }
-.tasks p{
- /* padding: 0.5rem; */
- /* text-align: left; */
- /* justify-self: left; */
+.project *{
+ /* border: 1px solid green; */
 }
+
 .task{
- display: flex;
+ /* height: max(200px); */
+ /* display: flex;
  flex-direction: row;
- align-items: center;
+ align-items: center; */
  /* height: 50px; */
  background-color: var(--secondary);
  color: var(--black);
  border-radius: 10px;
+ /* padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+ column-gap: 1rem;
+ display: grid;
+ grid-template: 1fr 1fr / 90% 10%; */
+ /* grid-area: ; */
+ /* display: flex;
+ flex-direction: row;
+ align-items: center;
  padding: 0.5rem 0.5rem 0.5rem 0.75rem;
- gap: 1rem;
+ gap: 1.5rem; */
 }
+.flex{
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ /* justify-content: flex-end; */
+ padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+ /* gap: 1.5rem; */
+}
+.grid{
+ display: grid;
+ grid-template: 1fr 1fr / 9fr 1fr;
+ padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+ column-gap: 1rem;
+}
+/* .task p{grid} */
+.grid img{
+ grid-area: 1 / 2 / 3 / 3 ; 
+ align-self: center;
+ justify-self: end;
+ /* display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-around; */
+}
+/* .description{grid-area: ;} */
 .task img{
  width: 20px;
  height: 20px;
@@ -95,13 +165,11 @@ body{
 .task img:hover{
  cursor: pointer;
 }
-.task p{
+.title{
  font-size: 18px;
  line-height: 25px;
 }
 #plus{
- /* border: 1px solid green; */
- /* width: 30%; */
  color: #ccc;
  font-family: raleway;
  font-size: 150px;
@@ -110,4 +178,90 @@ body{
 }
 #plus:hover{
  cursor: pointer;
+}
+
+#modal-bg{
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ background-color: rgba(0, 0, 0, 0.2);
+ align-items: center;
+ justify-content: center;
+}
+#modal{
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ justify-content: space-around;
+ justify-content: center;
+ align-items: center;
+ background-color: var(--grey);
+ border-radius: 10px;
+ width: 50%;
+ height: 50%;
+ /* gap: 1rem; */
+ padding: 1.25rem;
+}
+#modal img{
+ position: absolute;
+ width: 15px;
+ top: 1rem;
+ right: 1rem;
+}
+#modal img:hover{
+ cursor: pointer;
+}
+
+#modal h3{ 
+ /* position: absolute;
+ top: 2rem; */
+ font-weight: 500;
+ font-size: 1.75rem;
+}
+#add-project-div{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 1.25rem;
+ height: 70%;
+}
+#add-project{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ gap: 0.5rem;
+}
+#modal label{
+ font-size: 1.1rem;
+}
+#modal input{
+ padding: 0.25rem 0.5rem;
+ border-radius: 0;
+ border: 0.1px solid var(--main);
+}
+
+textarea{
+ width: 100%;
+ margin-top: 0.5rem;
+ padding: 0.25rem 0.5rem;
+}
+.description{
+ display: none;
+ color: rgba(0, 0, 0, 0.6);
+ font-size: 1rem;
+ margin-left: 0.5rem;
+}
+
+.date{
+ /* font-family: ; */
+ color: var(--main-dark);
+ /* color: var(--secondary); */
+ font-style: italic;
+ text-align: right;
+ padding-right: 1rem;
 }

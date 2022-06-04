@@ -6,14 +6,34 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="style.css">
  <script src="main.js"></script>
- <title>Document</title>
+ <title>To-do list</title>
 </head>
 <body>
 
  <div id="content">
+
+  <div id="modal-bg">
+   <div id="modal">
+    <img src="cross.png" alt="">
+    <h3>Add Project</h3>
+    <div id="add-project-div">
+     <div id="add-project">
+      <label for="">Project name: </label>
+      <input type="text">
+     </div>
+     <button>Submit</button>
+    </div>
+   </div>
+  </div>
+
   <div id="add-task">
-   <input type="text">
+   <input type="text" placeholder="Task">
    <button id="submit">Add task</button>
+   <textarea placeholder="Description" name="" id=""></textarea>
+   <input type="date" name="" id="calendar">
+   <div id="menu-div">
+    <p>Add task to: </p>
+   </div>
   </div>
 
   <div id="projects">
