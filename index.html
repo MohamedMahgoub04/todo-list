@@ -27,13 +27,32 @@
   </div>
 
   <div id="add-task">
-   <input type="text" placeholder="Task">
-   <button id="submit">Add task</button>
-   <textarea placeholder="Description" name="" id=""></textarea>
-   <input type="date" name="" id="calendar">
-   <div id="menu-div">
+   <div id="inp" class="full">
+    <p>Task:</p>
+    <input type="text" placeholder="" >
+   </div>
+   
+   <div id="desc" class="full">
+    <p>Description:</p>
+    <textarea placeholder="" name="" id="" ></textarea>
+   </div>
+   <div id="due" class="full">
+    <p>Due date: </p>
+    <input type="date" name="" id="calendar">
+   </div>
+   
+   <div id="menu-div" class="full">
     <p>Add task to: </p>
    </div>
+   <div id="priority" class="full">
+    <p>Priority:</p>
+    <select name="" id="">
+     <option value="high">High</option>
+     <option value="medium">Medium</option>
+     <option value="low">Low</option>
+    </select>
+   </div>
+   <button id="submit">Add task</button>
   </div>
 
   <div id="projects">
