@@ -1,4 +1,4 @@
-import { projectList, Todo, setIndex } from './logic'
+import { projectList, Todo, setIndex, save, retrieve } from './logic'
 import { format } from 'date-fns'
 
 function displayMenu() {
@@ -28,6 +28,15 @@ function display() {
   div.className = 'project'
   h3.innerHTML = i.project
   div2.className = 'tasks'
+  if (i.tasks.length == 0){
+   const div4 = document.createElement('div')
+   const h6 = document.createElement('h6')
+
+   div4.className = 'empty'
+   h6.innerHTML = 'There are no tasks added to this project.'
+   div4.append(h6)
+   div2.append(div4)
+  }
   for (let j of i.tasks){
    const div3 = document.createElement('div')
    const p = document.createElement('p')
@@ -36,15 +45,11 @@ function display() {
    const img = document.createElement('img')
    div3.className = 'task flex'
    div3.onclick = () => {
+    div3.querySelector('.description').classList.toggle('show')
     if (div3.className == 'task flex'){
     div3.className = 'task grid'
-    div3.querySelector('.description').style.display = 'block'
-    // if (x.querySelector('.description').innerHTML == ''){
-    //  x.querySelector('.description').innerHTML = 'No description'
-    // }
    } else {
     div3.className = 'task flex'
-    div3.querySelector('.description').style.display = 'none'
    }
    }
    p.className = 'title'
@@ -54,6 +59,16 @@ function display() {
    p3.className = 'date'
    p3.innerHTML = j.dueDate
    img.setAttribute('src', 'cross.png')
+   img.setAttribute('data-index', `${i.index},${j.index}`)
+   img.className = 'del'
+   img.onclick = () => {
+    let index = img.getAttribute('data-index')
+    let project = index.slice(0, 1)
+    let task = index.slice(2, 3)
+    projectList[project]['tasks'].splice(task, 1)
+    save()
+    display()
+   }
 
    div3.append(p)
    div3.append(p2)
@@ -92,7 +107,9 @@ function addProject() {
    tasks: []
   }
   projectList.push(newProject)
+  name.value = ''
   modal.style.display = 'none'
+  save()
   display()
   console.log(projectList)
  }
@@ -106,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
  const submit = input.querySelector('button')
  const tasks = document.querySelectorAll('.task')
 
- display()
+ retrieve()
  addProject()
 
  submit.onclick = () =>{
@@ -121,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
    if (i.index == optionVal){
     let todo = new Todo(task, description, dueDate)
     i.tasks.push(todo)
+    save()
     display()
    }
   }
@@ -130,3 +148,5 @@ document.addEventListener('DOMContentLoaded', () => {
  }
 
 })
+
+export { display }
